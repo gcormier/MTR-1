@@ -89,6 +89,7 @@ number:
     ld2450_id: ld2450_radar
     presence_timeout:
       name: "Timeout"
+      value: ${custom_presence_timeout}
     zone_1:
       x1:
         name: Zone-1 X1
@@ -171,15 +172,12 @@ binary_sensor:
     has_target:
       id: has_target_bs
       name: Presence
-      presence_timeout: ${custom_presence_timeout}
     has_moving_target:
       id: has_moving_target_bs
       name: Moving Target
-      presence_timeout: ${custom_presence_timeout}
     has_still_target:
       id: has_still_target_bs
       name: Still Target
-      presence_timeout: ${custom_presence_timeout}
 
   - platform: status
     name: Online
