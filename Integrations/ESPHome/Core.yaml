@@ -57,6 +57,10 @@ globals:
     restore_value: no
     type: bool
     initial_value: "false"
+  - id: custom_presence_timeout
+    restore_value: yes
+    type: int
+    initial_value: "5"    
 
 i2c:
   sda: GPIO1
@@ -170,12 +174,15 @@ binary_sensor:
     has_target:
       id: has_target_bs
       name: Presence
+      presence_timeout: !lambda 'return id(custom_presence_timeout);'
     has_moving_target:
       id: has_moving_target_bs
       name: Moving Target
+      presence_timeout: !lambda 'return id(custom_presence_timeout);'
     has_still_target:
       id: has_still_target_bs
       name: Still Target
+      presence_timeout: !lambda 'return id(custom_presence_timeout);'
 
   - platform: status
     name: Online
