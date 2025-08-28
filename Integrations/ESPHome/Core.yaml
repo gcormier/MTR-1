@@ -2,6 +2,7 @@ substitutions:
   name: apollo-mtr-1
   version: "25.8.12.1"
   device_description: ${name} made by Apollo Automation - version ${version}.
+  custom_presence_timeout: 5m
 
 esp32:
   board: esp32-c3-devkitm-1
@@ -170,12 +171,15 @@ binary_sensor:
     has_target:
       id: has_target_bs
       name: Presence
+      presence_timeout: ${custom_presence_timeout}
     has_moving_target:
       id: has_moving_target_bs
       name: Moving Target
+      presence_timeout: ${custom_presence_timeout}
     has_still_target:
       id: has_still_target_bs
       name: Still Target
+      presence_timeout: ${custom_presence_timeout}
 
   - platform: status
     name: Online
